@@ -1,26 +1,12 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Task06 {
     public static void main(String[] args) {
-        int array[][] = new int[3][3];
-        Scanner scanner = new Scanner(System.in);
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                array[i][j] = scanner.nextInt();
-            }
-        }
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                System.out.print(array[i][j]);
-            }
-            System.out.println();
-        }
-        int summ = 0;
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                summ += array[i][j];
-            }
-        }
-        System.out.println(summ + " " + summ / 9);
+        Matrix mtrx = new Matrix(5);
+        System.out.println(mtrx.getInfo());
+        System.out.println(Arrays.deepToString(mtrx.minAndMaxItemRow()));
+
+
     }
 }
