@@ -135,9 +135,11 @@ public class Matrix {
     public Matrix(int index, int size, int tmp) {
         this.size = size;
         this.array = new int[this.size][this.size];
+        int tmpS = 7;
         for (int i = 0; i < this.size; i++) {
             for (int j = 0; j < this.size; j++) {
-                //this.array[i][j] =
+                this.array[i][j] = tmpS;
+                tmpS += 7;
             }
         }
     }
