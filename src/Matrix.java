@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Matrix {
@@ -41,6 +42,12 @@ public class Matrix {
             }
         }
     }
+    public int getSize() {
+        return this.size;
+    }
+    public int[][] getArray() {
+        return this.array;
+    }
     public int[][] minAndMaxItemRow(){
         int arrayItems[][] = new int[this.size][2];
         for (int i = 0; i < this.array.length; i++) {
@@ -78,11 +85,60 @@ public class Matrix {
         }
         return arrayItems;
     }
-    public Matrix multiplication(Matrix mtrx) {
-        Matrix resMatrix = new Matrix(2);
-        for (int i = 0; i < ; i++) {
 
+    public Matrix multiplication (Matrix mtrx) {
+        Matrix resMat = new Matrix(2);
+        int vertArray[] = new int[2];
+        int gorizArray[] = new int[2];
+        for (int i = 0; i < this.array.length; i++) {
+            int multV = 1;
+            int multG = 1;
+            for (int j = 0; j < this.array[i].length; j++) {
+                multV *= this.array[i][j];
+                multG *= mtrx.getArray()[j][i];
+            }
+            vertArray[i] = multV;
+            gorizArray[i] = multG;
         }
-        return resMatrix;
+        for (int i = 0; i < resMat.getSize(); i++) {
+            for (int j = 0; j < resMat.getArray().length; j++) {
+                resMat.getArray()[i][j] = vertArray[i] * gorizArray[j];
+            }
+        }
+        return resMat;
+    }
+
+    public Matrix addition (Matrix mtrx) {
+        Matrix resMat = new Matrix(2);
+        int vertArray[] = new int[2];
+        int gorizArray[] = new int[2];
+        for (int i = 0; i < this.array.length; i++) {
+            for (int j = 0; j < this.array[i].length; j++) {
+                resMat.getArray()[i][j] = this.array[i][j] + mtrx.getArray()[i][j];
+            }
+        }
+        return resMat;
+    }
+
+    public Matrix subtraction (Matrix mtrx) {
+        Matrix resMat = new Matrix(2);
+        int vertArray[] = new int[2];
+        int gorizArray[] = new int[2];
+        for (int i = 0; i < this.array.length; i++) {
+            for (int j = 0; j < this.array[i].length; j++) {
+                resMat.getArray()[i][j] = this.array[i][j] - mtrx.getArray()[i][j];
+            }
+        }
+        return resMat;
+    }
+
+    public Matrix(int index, int size, int tmp) {
+        this.size = size;
+        this.array = new int[this.size][this.size];
+        for (int i = 0; i < this.size; i++) {
+            for (int j = 0; j < this.size; j++) {
+                //this.array[i][j] =
+            }
+        }
     }
 }
