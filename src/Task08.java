@@ -10,7 +10,6 @@ public class Task08 {
         System.out.println(mtrx4.getInfo());
         Matrix mtrx5 = mtrx1.subtraction(mtrx2);
         System.out.println(mtrx5.getInfo());
-        Matrix mtrx6 = new Matrix(7, 4, 5);
-        System.out.println(mtrx6.getInfo());
+
     }
 }
